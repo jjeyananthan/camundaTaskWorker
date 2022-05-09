@@ -1,14 +1,10 @@
 import requests
-import json
 import time
-from requests.auth import HTTPBasicAuth
 
-# --- UPDATE WITH YOUR CREDENTIALS HERE ---- #
+# --- UPDATE WITH YOUR SERVER HERE ---- #
 
-url = ' https://<<Camunda Path>>/engine-rest/external-task/'  # Replace "camundax" with your instance if you're using Camunda on our server.
-# url = 'https://camunda5.bpa.ics.unisg.ch/camunda' # Use this url if you're using Camunda on your machine.
-username = ""  # Replace "" with your username if you're using Camunda on our server. Leave "" otherwise.
-password = ""  # Replace "" with your password if you're using Camunda on our server. Leave "" otherwise.
+url = 'https://siddhix.bpmcep.ics.unisg.ch/engine-rest/external-task/'  # Replace "siddhix" with your instance if you're using Camunda on our server.
+# url = 'https://siddhix.bpmcep.ics.unisg.ch/engine-rest/external-task/' # Use this url if you're using Camunda on your machine.
 
 # ------- #
 
@@ -31,7 +27,7 @@ try:
         fetchAndLock_url = url + 'fetchAndLock'
 
         # Call API FetchAndLock with prepared url
-        response = requests.post(fetchAndLock_url, json=fetchAndLockPayload, auth=HTTPBasicAuth(username, password))
+        response = requests.post(fetchAndLock_url, json=fetchAndLockPayload)
 
         print('Fetch and lock status code: ', response.status_code)
         print('Fetch and lock response: ', response.text)
@@ -63,7 +59,7 @@ try:
             complete_url = (url + str(taskId) + '/complete')
 
             # Call method "complete" with prepared url
-            complete = requests.post(complete_url, json=new_request, auth=HTTPBasicAuth(username, password))
+            complete = requests.post(complete_url, json=new_request)
             print('complete status code: ', complete.status_code)
         else:
             time.sleep(2)
@@ -72,4 +68,3 @@ except KeyboardInterrupt:
     print('Script interrupted by user.')
 # except:
 #    print('Engine is down')
-
