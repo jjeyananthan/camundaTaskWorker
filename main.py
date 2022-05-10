@@ -3,7 +3,7 @@ import time
 
 # --- UPDATE WITH YOUR SERVER HERE ---- #
 
-url = 'https://siddhix.bpmcep.ics.unisg.ch/engine-rest/external-task/'  # Replace "siddhix" with your instance if you're using Camunda on our server.
+url = 'https://siddhi1.bpmcep.ics.unisg.ch/engine-rest/external-task/'  # Replace "siddhix" with your instance if you're using Camunda on our server.
 # url = 'https://siddhix.bpmcep.ics.unisg.ch/engine-rest/external-task/' # Use this url if you're using Camunda on your machine.
 
 # ------- #
